@@ -1,6 +1,5 @@
 package com.example.sharedprefexpo.common.utils
 
-import android.content.Context
 import android.content.SharedPreferences
 
 object PreferenceHelper {
@@ -31,4 +30,14 @@ object PreferenceHelper {
             Long::class -> getLong(key, defaultValue as? Long ?: -1) as T
             else -> throw UnsupportedOperationException("Invalid Data Type")
         }
+
+    fun SharedPreferences.clearAll(){
+        this.edit().clear().apply()
+    }
+
+    fun SharedPreferences.delete(key: String){
+        if (this.contains(key)) {
+            this.edit().remove(key).apply()
+        }
+    }
 }
