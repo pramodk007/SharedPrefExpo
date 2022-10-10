@@ -23,9 +23,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        appPreferences.pref[PreferenceConstants.PREF_USER_NAME] = "Pramod kumar"
-        val str = appPreferences.pref[PreferenceConstants.PREF_USER_NAME, ""]
-
-        binding.tv.text = str
+        appPreferences.name = "pramod"
+        binding.tv.text = appPreferences.name
     }
 }
